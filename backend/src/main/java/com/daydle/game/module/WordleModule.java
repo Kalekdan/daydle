@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class WordleModule extends AbstractModule {
-    private static final Pattern SCORE = Pattern.compile("Wordle\\s+(\\d+)\\s+([1-6X])/6", Pattern.CASE_INSENSITIVE);
+    private static final Pattern SCORE = Pattern.compile("Wordle\\s+([\\d,]+)\\s+([1-6X])/6", Pattern.CASE_INSENSITIVE);
 
     @Override
     public String key() {
@@ -24,7 +24,7 @@ public class WordleModule extends AbstractModule {
         Map<String, Object> hints = new HashMap<>();
         if (matcher.find()) {
             confidence = 0.98;
-            hints.put("puzzleNumber", Integer.parseInt(matcher.group(1)));
+            hints.put("puzzleNumber", Integer.parseInt(matcher.group(1).replace(",", "")));
             hints.put("attempts", matcher.group(2));
         }
         return new DetectionResult(key(), confidence, hints);
@@ -41,7 +41,7 @@ public class WordleModule extends AbstractModule {
         boolean won = !"X".equalsIgnoreCase(attemptsRaw);
 
         Map<String, Object> normalized = new HashMap<>();
-        normalized.put("puzzleNumber", Integer.parseInt(matcher.group(1)));
+        normalized.put("puzzleNumber", Integer.parseInt(matcher.group(1).replace(",", "")));
         normalized.put("outcome", won ? "win" : "loss");
         normalized.put("attemptsUsed", won ? Integer.parseInt(attemptsRaw) : null);
         normalized.put("maxAttempts", 6);
