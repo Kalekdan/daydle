@@ -1,0 +1,171 @@
+:root {
+  font-family: 'IBM Plex Sans', 'Trebuchet MS', sans-serif;
+  color: #302115;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(217, 167, 77, 0.35), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(158, 94, 32, 0.25), transparent 45%),
+    linear-gradient(130deg, #fff8eb 10%, #f8edd7 55%, #f5e3bf 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: 'Bitter', Georgia, serif;
+  color: #4c2a0f;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.panel {
+  background: rgba(255, 250, 240, 0.88);
+  border: 1px solid #d6bd8f;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 28px rgba(91, 56, 26, 0.1);
+}
+
+.auth-wrap {
+  max-width: 480px;
+  margin: 48px auto;
+  display: grid;
+  gap: 14px;
+}
+
+.auth-wrap form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid #c6a36f;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fffdf7;
+}
+
+button {
+  border: 0;
+  background: #8f5a1c;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+button.linkish {
+  background: transparent;
+  color: #8f5a1c;
+  padding: 0;
+}
+
+.home {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inline-controls {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 14px;
+}
+
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  gap: 3px;
+  overflow-x: auto;
+  padding: 6px 0;
+}
+
+.heatmap-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.stats-row {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.list {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.row,
+.feed-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid #e1ccab;
+  border-radius: 10px;
+  background: #fffcf4;
+}
+
+.error {
+  color: #9f211e;
+}
+
+.status {
+  color: #3d6221;
+}
+
+.loading {
+  text-align: center;
+  padding: 48px;
+}
+
+@media (max-width: 840px) {
+  #root {
+    padding: 14px;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
